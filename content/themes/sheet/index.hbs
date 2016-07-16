@@ -1,0 +1,38 @@
+{{!< default}}
+{{> header}}
+<main id="main" role="main">
+	{{#foreach posts}}
+	<article role="article" id="article-container">
+		<header>
+			<h1><a href="{{url}}">{{title}}</a></h1>
+			<p>by <a href="{{author.website}}" target="_blank">{{author}}</a></p>
+			<time datetime="{{date format="DD MMM YYYY"}}">
+				<span></span>
+				{{date format='DD MMM YYYY'}}
+			</time>
+		</header>
+		<div>
+			<p>{{excerpt words="100"}} &hellip; <a href="{{{url}}}">Read More</a></p>
+		</div>
+	</article>
+<footer>
+	{{#if tags}}
+	<div>
+		<span></span> Tags: {{tags separator=" . "}}
+	</div>
+	{{/if}}
+	<div>
+ 		<p>Share:</p> 
+ 		<a href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}" target="_blank"><span></span></a> 
+ 		<a href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}" target="_blank"><span></span></a> 
+ 		<a href="https://plus.google.com/share?url={{url absolute="true"}}" target="_blank"><span></span></a>
+	</div>
+</footer>
+{{/foreach}}
+	{{#if pagination}}
+	<div>
+	{{{pagination}}}
+	</div>
+{{/if}}
+</main>
+{{> footer}}
